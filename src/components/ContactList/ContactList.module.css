@@ -1,0 +1,30 @@
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.listItem {
+  width: 278px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+h2 {
+  color: #ff0000;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+
+.listItem:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
