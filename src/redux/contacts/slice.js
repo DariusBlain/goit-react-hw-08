@@ -3,8 +3,9 @@ import {
   addContactThunk,
   deleteContactThunk,
   fetchContactsThunk,
-} from "./contactsOps";
-import { selectContacts, selectNameFilter } from "./selectors";
+} from "./operations";
+import { selectContacts } from "./selectors";
+import { selectNameFilter } from "../filters/selectors";
 
 const initialState = {
   items: [],

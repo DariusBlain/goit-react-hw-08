@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { nanoid } from "nanoid";
 import s from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
-import { addContactThunk } from "../../redux/contactsOps";
+import { addContactThunk } from "../../redux/contacts/operations";
 
 const initialValues = {
   name: "",
@@ -42,27 +42,27 @@ const ContactForm = () => {
   const numberFieldId = nanoid();
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={ValidationSchema}
-    >
-      <Form className={s.form}>
-        <label className={s.label} htmlFor={nameFieldId}>
-          Name
-          <Field type="text" name="name" id={nameFieldId} />
-          <ErrorMessage className={s.error} name="name" component="span" />
-        </label>
-
-        <label className={s.label} htmlFor={numberFieldId}>
-          Number
-          <Field type="tel" name="number" id={numberFieldId} />
-          <ErrorMessage className={s.error} name="number" component="span" />
-        </label>
-
-        <button type="submit">Add contact</button>
-      </Form>
-    </Formik>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={ValidationSchema}
+      >
+        <Form className={s.form}>
+          <label className={s.label} htmlFor={nameFieldId}>
+            Name
+            <Field type="text" name="name" id={nameFieldId} />
+            <ErrorMessage className={s.error} name="name" component="span" />
+          </label>
+  
+          <label className={s.label} htmlFor={numberFieldId}>
+            Number
+            <Field type="tel" name="number" id={numberFieldId} />
+            <ErrorMessage className={s.error} name="number" component="span" />
+          </label>
+  
+          <button type="submit">Add contact</button>
+        </Form>
+      </Formik>
   );
 };
 
