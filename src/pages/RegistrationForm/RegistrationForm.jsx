@@ -41,9 +41,9 @@ const validationSchema = Yup.object().shape({
 
   return (
     <div className={s.container}>
-      <h1></h1>
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
         <Form className={s.form}>
+      <h1>Register</h1>
           <Field
             name="name"
             placeholder="Enter your name"
