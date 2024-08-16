@@ -43,8 +43,8 @@ function App() {
             </PrivateRoute>} />
           <Route path="login" element={ <RestrictedRoute><LoginForm /></RestrictedRoute>} />
           <Route path="register" element={ <RestrictedRoute><RegistrationForm /></RestrictedRoute>} />
-          <Route path="*" element={<NotFound />} />
         </Route>
+          <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
