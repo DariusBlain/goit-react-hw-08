@@ -1,0 +1,28 @@
+.navList {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navItem {
+    display: inline-block;
+    font-size: 26px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.navLink:hover {
+    color: #FFC000;
+}
+
+.activeLink {
+    color: #FF7B00;
+    font-weight: bold;
+}

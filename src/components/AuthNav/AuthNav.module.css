@@ -1,0 +1,23 @@
+.authNavList {
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.authNavLink {
+    font-size: 26px;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.authNavLink:hover {
+    color: #FFC000;
+}
+
+.activeLink {
+    color: #FF7B00;
+    font-weight: bold;
+}

@@ -1,17 +1,10 @@
 #root {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
-.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background: #f0f2f5;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
 }
 
 h1 {
