@@ -5,7 +5,8 @@ import {
   fetchContactsThunk,
 } from "./operations";
 import { selectContacts } from "./selectors";
-import { selectNameFilter } from "../filters/selectors";
+import { selectNameFilter, selectNumberFilter } from "../filters/selectors";
+import toast from "react-hot-toast";
 
 const initialState = {
   items: [],
@@ -25,10 +26,16 @@ const contactSlice = createSlice({
       .addCase(deleteContactThunk.fulfilled, (state, action) => {
         state.items = state.items.filter((item) => item.id !== action.payload);
         state.loading = false;
+        toast("Contact removed from your list.", {
+          icon: "🗑️",
+        });
       })
       .addCase(addContactThunk.fulfilled, (state, action) => {
         state.items.push(action.payload);
         state.loading = false;
+        toast("Contact added to your list.", {
+          icon: "✔️",
+        });
       })
       .addMatcher(
         isAnyOf(
@@ -50,16 +57,19 @@ const contactSlice = createSlice({
         (state) => {
           state.error = true;
           state.loading = false;
+          toast.error("This is an error!");
         }
       );
   },
 });
 
 export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter],
-  (contacts, filter) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+  [selectContacts, selectNameFilter, selectNumberFilter],
+  (contacts, nameFilter, numberFilter) => {
+    return contacts.filter(
+      (contact) =>
+        contact.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
+        contact.number.includes(numberFilter)
     );
   }
 );

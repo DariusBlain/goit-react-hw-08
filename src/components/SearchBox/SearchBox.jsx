@@ -1,25 +1,41 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeFilter } from "../../redux/filters/slice";
-import { selectNameFilter } from "../../redux/filters/selectors";
+import { selectNameFilter, selectNumberFilter } from "../../redux/filters/selectors";
 import s from "./SearchBox.module.css";
+import { changeNameFilter, changeNumberFilter } from "../../redux/filters/slice";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(selectNameFilter);
+  const filterName = useSelector(selectNameFilter);
+  const filterNumber = useSelector(selectNumberFilter)
 
-  const handleChange = (e) => {
-    dispatch(changeFilter(e.target.value));
+  const handleNameChange = (e) => {
+    dispatch(changeNameFilter(e.target.value));
+  };
+
+  const handleNumberChange = (e) => {
+    dispatch(changeNumberFilter(e.target.value));
   };
 
   return (
     <div className={s.container}>
-      <p className={s.label}>Find contacts by name</p>
+      <label  className={s.label}>Find contacts by name
       <input
+        name="name"
         type="text"
-        value={filter}
-        onChange={handleChange}
+        value={filterName}
+        onChange={handleNameChange}
         className={s.input}
-      />
+        />
+        </label>
+      <label  className={s.label}>Find contacts by number
+       <input
+          name="number"
+          type="text"
+          value={filterNumber}
+          onChange={handleNumberChange}
+          className={s.input}
+        />
+        </label>
     </div>
   );
 };

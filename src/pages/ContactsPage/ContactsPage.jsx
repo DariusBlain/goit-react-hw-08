@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { fetchContactsThunk } from '../../redux/contacts/operations';
 import s from "./ContactsPage.module.css";
 import { ColorRing } from 'react-loader-spinner';
+import { Toaster } from 'react-hot-toast';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const ContactsPage = () => {
 
   return (
     <div className={s.container}>
+      <Toaster />
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox  />
