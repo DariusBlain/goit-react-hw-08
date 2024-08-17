@@ -10,10 +10,10 @@ import { refreshUser } from "../redux/auth/operations";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
 import ContactsPage from "../pages/ContactsPage/ContactsPage";
 import HomePage from "../pages/HomePage/HomePage";
-import RegistrationForm from "../pages/RegistrationForm/RegistrationForm";
-import LoginForm from "../pages/LoginForm/LoginForm";
 import { selectIsRefreshing } from "../redux/auth/selectors";
 import { ColorRing } from "react-loader-spinner";
+import LoginForm from "./LoginForm/LoginForm";
+import RegistrationForm from "./RegistrationForm/RegistrationForm";
 
 function App() {
   const dispatch = useDispatch();

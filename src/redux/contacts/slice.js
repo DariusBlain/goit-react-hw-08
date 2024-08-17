@@ -7,6 +7,7 @@ import {
 import { selectContacts } from "./selectors";
 import { selectNameFilter, selectNumberFilter } from "../filters/selectors";
 import toast from "react-hot-toast";
+import { logout } from "../auth/operations";
 
 const initialState = {
   items: [],
@@ -36,6 +37,9 @@ const contactSlice = createSlice({
         toast("Contact added to your list.", {
           icon: "✔️",
         });
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.items = [];
       })
       .addMatcher(
         isAnyOf(

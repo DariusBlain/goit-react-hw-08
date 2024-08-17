@@ -48,3 +48,52 @@ button:hover {
   background: #0056b3;
   transform: scale(1.05);
 }
+
+
+.modalOverlay {
+  position: fixed;
+  width: 97vw;
+  height: 97vh;
+  background: radial-gradient(rgba(0, 87, 179, 0.7), transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modalContainer {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.modalButtonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modalButtonConfirm,
+.modalButtonCancel {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modalButtonCancel {
+  background: #dc3545;
+}
+
+.modalButtonConfirm:hover,
+.modalButtonCancel:hover {
+  opacity: 0.9;
+}

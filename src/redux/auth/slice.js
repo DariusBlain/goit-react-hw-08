@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { login, logout, refreshUser, register } from "./operations";
 
 const initialState = {
@@ -40,6 +40,9 @@ const slice = createSlice({
       })
       .addCase(refreshUser.rejected, (state, action) => {
         state.isRefreshing = false;
+      })
+      .addMatcher(isAnyOf(register.rejected, login.rejected), (state) => {
+        state.isLoggedIn = false;
       });
   },
 });
