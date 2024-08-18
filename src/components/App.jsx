@@ -12,8 +12,8 @@ import ContactsPage from "../pages/ContactsPage/ContactsPage";
 import HomePage from "../pages/HomePage/HomePage";
 import { selectIsRefreshing } from "../redux/auth/selectors";
 import { ColorRing } from "react-loader-spinner";
-import LoginForm from "./LoginForm/LoginForm";
-import RegistrationForm from "./RegistrationForm/RegistrationForm";
+import RegistrationPage from "./RegistrationPage/RegistrationPage";
+import LoginPage from "./LoginPage/LoginPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,8 +41,8 @@ function App() {
             <PrivateRoute>
             <ContactsPage />
             </PrivateRoute>} />
-          <Route path="login" element={ <RestrictedRoute><LoginForm /></RestrictedRoute>} />
-          <Route path="register" element={ <RestrictedRoute><RegistrationForm /></RestrictedRoute>} />
+          <Route path="login" element={ <RestrictedRoute><LoginPage /></RestrictedRoute>} />
+          <Route path="register" element={ <RestrictedRoute><RegistrationPage /></RestrictedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

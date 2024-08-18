@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { register } from '../../redux/auth/operations';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import s from './RegistrationForm.module.css'
+import s from './RegistrationPage.module.css'
 
-const RegistrationForm = () => {
+const RegistrationPage = () => {
   const dispatch = useDispatch();
   const initialValues = {
     name: '',
@@ -79,4 +79,4 @@ const validationSchema = Yup.object().shape({
   );
 };
 
-export default RegistrationForm;
+export default RegistrationPage;
