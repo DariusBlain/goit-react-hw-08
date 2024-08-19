@@ -1,12 +1,11 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #f4f7f6;
+.formWrapper {
+    background: #ffffff;
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 1280px;
+    max-width: 400px;
+    text-align: center;
 }
 
 .heading {
@@ -17,15 +16,7 @@
 
 .form {
     display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    flex-direction: column;
 }
 
 .field {
@@ -58,14 +49,7 @@
     background: #0056b3;
 }
 
-.link {
-    color: #007bff;
-    text-decoration: none;
-}
 
-.link:hover {
-    text-decoration: underline;
-}
 
 .error {
     color: #e74c3c;

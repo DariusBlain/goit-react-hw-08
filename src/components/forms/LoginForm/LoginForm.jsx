@@ -1,14 +1,17 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
-import { login } from '../../redux/auth/operations';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import s from './LoginPage.module.css';
 
-const LoginPage = () => {
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import * as Yup from 'yup';
+import { login } from '../../../redux/auth/operations';
+import s from "../forms.module.css"
+
+
+
+
+const LoginForm = () => {
   const dispatch = useDispatch();
-  const initialValues = {
+
+    const initialValues = {
     email: '',
     password: '',
   };
@@ -22,20 +25,13 @@ const LoginPage = () => {
       .max(50, 'Too Long!')
       .required('Required'),
   });
-
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  const handleSubmit = (values, { resetForm }) => {
+    
+      const handleSubmit = (values, { resetForm }) => {
     dispatch(login(values));
     resetForm();
   };
-
-  if (isLoggedIn) {
-    return <Navigate to="/" />;
-  }
-
+    
   return (
-    <div className={s.container}>
       <div className={s.formWrapper}>
         <h1 className={s.heading}>Login</h1>
         <Formik
@@ -61,15 +57,11 @@ const LoginPage = () => {
             <button type="submit" className={s.button}>
               Login
             </button>
-            <p className={s.linkText}>
-              You don't have an account?{' '}
-              <Link to="/register" className={s.link}>Sign up</Link>
-            </p>
           </Form>
         </Formik>
       </div>
-    </div>
-  );
-};
+   
+  )
+}
 
-export default LoginPage;
+export default LoginForm

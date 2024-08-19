@@ -1,13 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import * as Yup from "yup";
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
-import { register } from '../../redux/auth/operations';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import s from './RegistrationPage.module.css'
+import { register } from '../../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import s from '../forms.module.css'
 
-const RegistrationPage = () => {
-  const dispatch = useDispatch();
+const RegistrationForm = () => {
+ const dispatch = useDispatch();
   const initialValues = {
     name: '',
     email: '',
@@ -27,23 +25,17 @@ const validationSchema = Yup.object().shape({
     .max(50, "Too Long!")
     .required("Required"),
 });
-
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  const handleSubmit = (values, { resetForm }) => {
+    
+const handleSubmit = (values, { resetForm }) => {
     dispatch(register(values));
     resetForm();
   };
 
-  if (isLoggedIn) {
-    return <Navigate to="/" />;
-  }
-
-  return (
-    <div className={s.container}>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
+    return (
+      <div className={s.formWrapper}>
+        <h1 className={s.heading}>Register</h1>
+        <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
         <Form className={s.form}>
-      <h1 className={s.heading}>Register</h1>
           <Field
             name="name"
             placeholder="Enter your name"
@@ -68,15 +60,10 @@ const validationSchema = Yup.object().shape({
           <ErrorMessage name="password" component="div" className={s.error} />
           
           <button type="submit" className={s.button}>Register</button>
-          
-          <p>
-            You already have an account? 
-            <Link to="/login" className={s.link}> Sign in</Link>
-          </p>
         </Form>
-      </Formik>
-    </div>
-  );
-};
+        </Formik>
+        </div>
+  )
+}
 
-export default RegistrationPage;
+export default RegistrationForm
