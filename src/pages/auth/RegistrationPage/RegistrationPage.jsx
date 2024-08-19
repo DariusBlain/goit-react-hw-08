@@ -1,8 +1,8 @@
 import {  useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import s from './RegistrationPage.module.css'
-import RegistrationForm from '../../components/forms/RegistrationForm/RegistrationForm';
+import { selectIsLoggedIn } from '../../../redux/auth/selectors';
+import s from '../auth.module.css'
+import RegistrationForm from '../../../components/forms/RegistrationForm/RegistrationForm';
 
 const RegistrationPage = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -14,7 +14,7 @@ const RegistrationPage = () => {
   return (
     <div className={s.container}>
       <RegistrationForm />
-      <p>
+      <p className={s.linkText}>
             You already have an account? 
             <Link to="/login" className={s.link}> Sign in</Link>
           </p>

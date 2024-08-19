@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import s from "./LoginPage.module.css"
-import LoginForm from '../../components/forms/LoginForm/LoginForm';
+import { selectIsLoggedIn } from '../../../redux/auth/selectors';
+import s from '../auth.module.css'
+import LoginForm from '../../../components/forms/LoginForm/LoginForm';
 
 const LoginPage = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);

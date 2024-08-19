@@ -12,9 +12,8 @@ import ContactsPage from "../pages/ContactsPage/ContactsPage";
 import HomePage from "../pages/HomePage/HomePage";
 import { selectIsRefreshing } from "../redux/auth/selectors";
 import { ColorRing } from "react-loader-spinner";
-import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
-import LoginPage from "../pages/LoginPage/LoginPage";
-
+import LoginPage from "../pages/auth/LoginPage/LoginPage";
+import RegistrationPage from "../pages/auth/RegistrationPage/RegistrationPage";
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing)
